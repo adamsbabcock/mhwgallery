@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   },
   media: {
     height: 200,
-    width: 200,
+    width: 400,
   },
 })
 
@@ -38,7 +38,7 @@ const Biome = (props) => {
         />
         {captionHeading && (
           <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
+            <Typography gutterBottom align="center" variant="h6" component="h1">
               {captionHeading}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">

@@ -7,7 +7,7 @@ export default class PageHeader extends Component {
 
     return (
       <div>
-        <Typography variant="h1" component="h2" align="center" gutterBottom>
+        <Typography variant="h2" component="h1" align="center" gutterBottom>
           {pageTitle}
         </Typography>
       </div>

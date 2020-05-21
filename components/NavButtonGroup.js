@@ -10,22 +10,55 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const NavButtonGroup = () => {
+const NavButtonGroup = ({ biomeName }) => {
   const classes = useStyles()
 
   return (
     <Fragment>
       <div className={classes.root} align="center">
-        <Button variant="contained" href="/">
+        <Button variant="outlined" href="/">
           Home
         </Button>
-        <Button variant="contained" color="primary" href="/wildspire_waste">
+        <Button
+          variant="outlined"
+          color="inherit"
+          href="/ancient_forest"
+          disabled={biomeName === 'ancientForest'}
+        >
+          Ancient Forest
+        </Button>
+        <Button
+          variant="outlined"
+          color="primary"
+          href="/wildspire_waste"
+          disabled={biomeName === 'wildspireWaste'}
+        >
           Wildspire Waste
         </Button>
-        <Button variant="contained" color="secondary">
+        <Button
+          variant="outlined"
+          color="secondary"
+          href="/coral_highlands"
+          disabled={biomeName === 'coralHighlands'}
+        >
+          Coral Highlands
+        </Button>
+        <Button
+          variant="outlined"
+          color="primary"
+          href="/rotten_vale"
+          disabled={biomeName === 'rottenVale'}
+        >
           Rotten Vale
         </Button>
-        <Button variant="contained">Elders Recess</Button>
+        <Button
+          variant="outlined"
+          color="inherit"
+          href="/elders_recess"
+          disabled={biomeName === 'eldersRecess'}
+        >
+          Elders Recess
+        </Button>
       </div>
     </Fragment>
   )
