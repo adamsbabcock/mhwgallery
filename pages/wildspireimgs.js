@@ -1,8 +1,7 @@
-import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import GridList from '@material-ui/core/GridList'
 import GridListTile from '@material-ui/core/GridListTile'
-import tileData from './tileData'
+// import tileData from './tileData'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
  */
 export default function ImageGridList() {
   const classes = useStyles()
+  const tileData = []
 
   return (
     <div className={classes.root}>
