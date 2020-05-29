@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles'
 import GridList from '@material-ui/core/GridList'
 import GridListTile from '@material-ui/core/GridListTile'
-// import tileData from './tileData'
+import tileData from './tileData'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,24 +17,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-/**
- * The example data is structured as follows:
- *
- * import image from 'path/to/image.jpg';
- * [etc...]
- *
- * const tileData = [
- *   {
- *     img: image,
- *     title: 'Image',
- *     author: 'author',
- *     cols: 2,
- *   },
- *   {
- *     [etc...]
- *   },
- * ];
- */
+const tileData = [
+  {
+    img: '/images/mhwwildspirewaste.jpg',
+    title: 'Wildspire Waste',
+    cols: 2,
+  },
+]
 export default function ImageGridList() {
   const classes = useStyles()
   const tileData = []
@@ -44,7 +33,7 @@ export default function ImageGridList() {
       <GridList cellHeight={160} className={classes.gridList} cols={3}>
         {tileData.map((tile) => (
           <GridListTile key={tile.img} cols={tile.cols || 1}>
-            <img src={tile.img} alt={tile.title} />
+            <img src={mhwwildspirewaste.img} alt={tile.title} />
           </GridListTile>
         ))}
       </GridList>

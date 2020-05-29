@@ -1,52 +1,29 @@
 import Grid from '@material-ui/core/Grid'
 import GridList from '@material-ui/core/GridList'
+import Box from '@material-ui/core/Box'
 import DefaultLayout from './layouts/default'
 import PageHeader from './PageHeader'
-import Biome from './Biome'
 import NavButtonGroup from './NavButtonGroup'
-// import GridListTile from '@material-ui/core/GridListTile'
-// import tileData from './tileData'
+import { makeStyles } from '@material-ui/core/styles'
+import GridListTile from '@material-ui/core/GridListTile'
+import * as biomeMap from '../models/tile-data'
 
-const biomeMap = {
-  ancientForest: {
-    biomes: [
-      {
-        imageLocation: '/images/mhwancientforest.jpg',
-      },
-    ],
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    overflow: 'hidden',
+    backgroundColor: theme.palette.background.paper,
   },
-  wildspireWaste: {
-    biomes: [
-      {
-        imageLocation: '/images/mhwwildspirewaste.jpg',
-      },
-    ],
+  gridList: {
+    width: 500,
+    height: 500,
   },
-  coralHighlands: {
-    biomes: [
-      {
-        imageLocation: '/images/mhwcoralhighlands.jpeg',
-      },
-    ],
-  },
-  eldersRecess: {
-    biomes: [
-      {
-        imageLocation: '/images/elders_recess.jpg',
-      },
-    ],
-  },
-  rottenVale: {
-    biomes: [
-      {
-        imageLocation: '/images/mhwrottenvale.jpg',
-      },
-    ],
-  },
-}
+}))
 
 export default function SelectedBiome(props) {
-  const spacing = 2
+  const classes = useStyles()
 
   const { pageTitle, biomeName } = props
 
@@ -56,23 +33,21 @@ export default function SelectedBiome(props) {
 
       <NavButtonGroup biomeName={biomeName} />
 
-      <Grid container spacing={2}>
-        <Grid item xs={12}>
-          {/*<Grid container justify="center" spacing={spacing}>*/}
-          {/*  {biomeMap[biomeName].biomes.map(*/}
-          {/*    ({ imageLocation, imageTitle, captionHeading }) => (*/}
-          {/*      <Grid key={imageLocation} item>*/}
-          {/*        <Biome*/}
-          {/*          imageLocation={imageLocation}*/}
-          {/*          imageTitle={imageTitle}*/}
-          {/*          captionHeading={captionHeading}*/}
-          {/*        />*/}
-          {/*      </Grid>*/}
-          {/*    )*/}
-          {/*  )}*/}
-          {/*</Grid>*/}
+      <Box pt={5}>
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <div className={classes.root}>
+              <GridList cellHeight={160} className={classes.gridList} cols={3}>
+                {biomeMap[biomeName].map((tile) => (
+                  <GridListTile key={tile.img} cols={tile.cols || 1}>
+                    <img src={tile.img} alt={tile.title} />
+                  </GridListTile>
+                ))}
+              </GridList>
+            </div>
+          </Grid>
         </Grid>
-      </Grid>
+      </Box>
     </DefaultLayout>
   )
 }
